@@ -1,10 +1,10 @@
 package domarev.csf.model;
 
-public class Black implements Checker {
+public class WhiteChecker implements Checker {
 
     private final Coordinates position;
 
-    public Black(final Coordinates position) {
+    public WhiteChecker(Coordinates position) {
         this.position = position;
     }
 
@@ -14,8 +14,10 @@ public class Black implements Checker {
     }
 
     @Override
-    public Coordinates[] way(Coordinates dep, Coordinates des) {
-        Coordinates[] step = new Coordinates[0];
+    public Coordinates[] way(Coordinates des) {
+            return new Coordinates[] {
+                    des
+            };
     }
 
     @Override
