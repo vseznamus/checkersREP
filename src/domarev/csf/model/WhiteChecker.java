@@ -4,13 +4,13 @@ public class WhiteChecker implements Checker {
 
     private final Coordinates position;
 
-    public WhiteChecker(Coordinates position) {
+    public WhiteChecker(final Coordinates position) {
         this.position = position;
     }
 
     @Override
     public Coordinates pos() {
-        return this.position    ;
+        return this.position;
     }
 
     @Override
@@ -22,6 +22,10 @@ public class WhiteChecker implements Checker {
 
     @Override
     public Checker clone(Coordinates des) {
-        return null;
+        return new WhiteChecker(des);
+    }
+
+    public boolean isDiagonal(Coordinates start, Coordinates end) {
+        return false;
     }
 }

@@ -4,7 +4,13 @@ public interface Checker {
 
     Coordinates pos();
 
-    Coordinates[] way(Coordinates des);  //Проверка пути. Параметры - начало и конец - клетка.
+    Coordinates[] way(Coordinates des);
 
-    Checker clone(Coordinates des); //используется для перемещения фигуры (перезапись массива).
+    Checker clone(Coordinates des);
+
+    default String icon() {
+        return String.format(
+                "%s.png", getClass().getSimpleName()
+        );
+    }
 }

@@ -17,4 +17,23 @@ public enum Coordinates {
         this.x = x;
         this.y = y;
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public static Coordinates findBy(int x, int y) {
+        Coordinates rsl = null;
+        for (Coordinates Coordinates : values()) {
+            if (Coordinates.x == x && Coordinates.y == y) {
+                rsl = Coordinates;
+                break;
+            }
+        }
+        return rsl;
+    }
 }

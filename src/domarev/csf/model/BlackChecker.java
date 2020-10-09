@@ -10,16 +10,22 @@ public class BlackChecker implements Checker {
 
     @Override
     public Coordinates pos() {
-        return this.position    ;
+        return this.position;
     }
 
     @Override
     public Coordinates[] way(Coordinates des) {
-        return new Coordinates[0];
+        throw new IllegalStateException(
+                String.format("Could not way by diagonal from %s to %s", position, des)
+        );
     }
 
     @Override
     public Checker clone(Coordinates des) {
-        return null;
+        return new BlackChecker(des);
+    }
+
+    public boolean isDiagonal(Coordinates start, Coordinates end) {
+        return false;
     }
 }
