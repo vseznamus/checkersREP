@@ -25,11 +25,14 @@ public class TEST_VIEW {
 
             //System.out.println("ENTER COMMAND : ");
             //command = scanner.nextLine();
+            logic.move(Coordinates.E6, Coordinates.E5);
+            System.out.println("Checker E6 moved to E5");
             logic.move(Coordinates.E6, Coordinates.F5);
             System.out.println("Checker E6 moved to F5");
             logic.move(Coordinates.H3, Coordinates.G4);
             System.out.println("Checker H3 moved to G4");
             logic.move(Coordinates.F5, Coordinates.H3);
             System.out.println("Checker F5 moved to H3");
+
     }
 }

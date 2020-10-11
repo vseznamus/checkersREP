@@ -21,8 +21,11 @@ public class Logic {
     public void move(Coordinates start, Coordinates end)
             throws CheckerNotFoundException, ImpossibleMoveException, OccupiedCoordinateException {
         int index = findBy(start);
+        if (end.getX() - start.getX() != Math.abs(1) && end.getY() - start.getY() != Math.abs(1)
+                || Math.abs(start.getX()-end.getX()) != Math.abs(start.getY()-end.getY()))
+            throw new ImpossibleMoveException();
         Coordinates[] steps = checkers[index].way(end);
-        free(steps);
+        //free(steps);
         checkers[index] = checkers[index].clone(end);
     }
 
@@ -41,13 +44,25 @@ public class Logic {
         index = 0;
     }
 
-    private boolean free(Coordinates[] steps) throws OccupiedCoordinateException {
+    /*private boolean free(Coordinates[] steps) throws OccupiedCoordinateException {
+        for (int index = 0; index != checkers.length; index++) {
+            Checker checker = checkers[index];
+            if (checker.pos() != null) {
+                throw new OccupiedCoordinateException();
+            }
+        }
         return true;
     }
 
-    public boolean gameEnds() {
+     */
+
+
+
+    /*public boolean gameEnds() {
         return checkers.length > 12;
     }
+
+     */
 
     private final int size = 8;
 
