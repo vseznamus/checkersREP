@@ -15,9 +15,13 @@ public class BlackChecker implements Checker {
 
     @Override
     public Coordinates[] way(Coordinates des) {
+        if (!isDiagonal(position,des))
         throw new IllegalStateException(
                 String.format("Could not way by diagonal from %s to %s", position, des)
         );
+        else return new Coordinates[] {
+                des
+        };
     }
 
     @Override

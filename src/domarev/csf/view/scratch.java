@@ -8,7 +8,7 @@ import domarev.csf.service.exceptions.OccupiedCoordinateException;
 class Scratch {
 
     public static void main(String[] args) throws OccupiedCoordinateException, CheckerNotFoundException, ImpossibleMoveException {
-        MainView view = new MainView();
+        TEST_VIEW view = new TEST_VIEW();
         view.start();
     }
 }
