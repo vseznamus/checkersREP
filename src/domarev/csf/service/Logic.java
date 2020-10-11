@@ -28,8 +28,8 @@ public class Logic {
 
     private int findBy(Coordinates coordinates) throws CheckerNotFoundException {
         for (int index = 0; index != checkers.length; index++) {
-            Checker figure = checkers[index];
-            if (figure != null && figure.pos().equals(coordinates)) {
+            Checker checker = checkers[index];
+            if (checker != null && checker.pos().equals(coordinates)) {
                 return index;
             }
         }
