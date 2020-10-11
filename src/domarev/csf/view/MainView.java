@@ -27,6 +27,6 @@ public class MainView {
             System.out.println("ENTER COMMAND : ");
             command = scanner.nextLine();
             logic.move(Coordinates.E6, Coordinates.F5);
-        } while (logic.gameEnds());
+    } while (logic.gameEnds());
     }
 }

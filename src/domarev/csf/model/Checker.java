@@ -8,9 +8,4 @@ public interface Checker {
 
     Checker clone(Coordinates des);
 
-    default String icon() {
-        return String.format(
-                "%s.png", getClass().getSimpleName()
-        );
-    }
 }
