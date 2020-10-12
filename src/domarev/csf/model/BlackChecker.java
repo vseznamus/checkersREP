@@ -1,4 +1,4 @@
-package domarev.csf.model;
+/*package domarev.csf.model;
 
 public class BlackChecker implements Checker {
 
@@ -25,3 +25,5 @@ public class BlackChecker implements Checker {
         return new BlackChecker(des);
     }
 }
+
+ */
