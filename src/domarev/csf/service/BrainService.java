@@ -33,10 +33,10 @@ public class BrainService {
         }
     }
 
-    private int findBy(Point Point) throws CheckerNotFoundException {
+    private int findBy(Point point) throws CheckerNotFoundException {
         for (int index = 0; index < checkers.length; index++) {
             Checker checker = checkers[index];
-            if (checker != null && checker.pos().equals(Point)) {
+            if (checker != null && checker.pos().equals(point)) {
                 return index;
             }
         }
@@ -53,6 +53,10 @@ public class BrainService {
     }
 
     private final int size = 8;
+
+    public Color getColor(Point point) throws CheckerNotFoundException {
+        return checkers[findBy(point)].color;
+    }
 
     protected void buildBlackTeam() {
         add(new Checker(Point.B1, Color.BLACK));

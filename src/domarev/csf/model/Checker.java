@@ -28,4 +28,9 @@ public class Checker implements IChecker {
     public Checker clone(Point des) {
         return new Checker(des, color);
     }
+
+    @Override
+    public Color color(Point start) {
+        return this.color;
+    }
 }

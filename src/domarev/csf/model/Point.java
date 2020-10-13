@@ -26,4 +26,5 @@ public enum Point {
         return y;
     }
 
+
 }
