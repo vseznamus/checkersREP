@@ -5,27 +5,27 @@ import domarev.csf.service.exceptions.ImpossibleMoveException;
 public class Checker implements IChecker {
 
     public final Color color;
-    private final Points position;
+    private final Point position;
 
-    public Checker(final Points position, Color color) {
+    public Checker(final Point position, Color color) {
         this.position = position;
         this.color = color;
     }
 
     @Override
-    public Points pos() {
+    public Point pos() {
         return this.position;
     }
 
     @Override
-    public Points[] way(Points des) throws ImpossibleMoveException {
-        return new Points[]{
+    public Point[] way(Point des) throws ImpossibleMoveException {
+        return new Point[]{
                 des
         };
     }
 
     @Override
-    public Checker clone(Points des) {
+    public Checker clone(Point des) {
         return new Checker(des, color);
     }
 }

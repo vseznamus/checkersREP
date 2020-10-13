@@ -4,9 +4,9 @@ import domarev.csf.service.exceptions.ImpossibleMoveException;
 
 public interface IChecker {
 
-    Points pos();
+    Point pos();
 
-    Points[] way(Points des) throws ImpossibleMoveException;
+    Point[] way(Point des) throws ImpossibleMoveException;
 
-    Checker clone(Points des);
+    Checker clone(Point des);
 }
