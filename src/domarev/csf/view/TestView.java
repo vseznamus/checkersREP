@@ -27,11 +27,9 @@ public class TestView {
         Color turn = Color.WHITE;
 
         do {
-
             System.out.println("ENTER FIRST POINT : ");
             command = scanner.nextLine();
             Point type = Point.valueOf(command.toUpperCase());
-
             System.out.println("ENTER SECOND POINT : ");
             command2 = scanner.nextLine();
             Point type2 = Point.valueOf(command2.toUpperCase());
@@ -43,7 +41,7 @@ public class TestView {
                         if (turn == Color.WHITE) {
                             turn = Color.BLACK;
                         } else turn = Color.WHITE;
-                        System.out.println("---------------> " +turn + " TURN NOW");
+                        System.out.println("---------------> " + turn + " TURN NOW");
                     } catch (OccupiedCoordinateException e) {
                         System.out.println("!<-Occupied cell found->!");
                     } catch (CheckerNotFoundException e) {
@@ -51,7 +49,7 @@ public class TestView {
                     } catch (ImpossibleMoveException e) {
                         System.out.println("!<-Checker cannot move this way->!");
                     }
-                } else System.out.println("---------------> " +turn + " TURN NOW. -----> TRY AGAIN");
+                } else System.out.println("---------------> " + turn + " TURN NOW. -----> TRY AGAIN");
             } catch (CheckerNotFoundException e) {
                 e.printStackTrace();
             }
