@@ -9,23 +9,31 @@ import domarev.csf.service.exceptions.OccupiedCoordinateException;
 
 import java.util.Arrays;
 
-public class ActionService {
+public class Game {
     private final Checker[] checkers = new Checker[24];
     private int index = 0;
 
-    public void addToArray(Checker checker) {
+    private void addToArray(Checker checker) {
         this.checkers[this.index++] = checker;
     }
 
     public void move(Points start, Points end)
             throws CheckerNotFoundException, ImpossibleMoveException, OccupiedCoordinateException {
         int index = findBy(start);
-        if (end.getX() - start.getX() != Math.abs(1) && end.getY() - start.getY() != Math.abs(1)
-                || Math.abs(start.getX() - end.getX()) != Math.abs(start.getY() - end.getY()))
-            throw new ImpossibleMoveException();
-        Points[] steps = checkers[index].way(end);
-        checkers[index] = checkers[index].clone(end);
+        do {
+            Points[] steps = checkers[index].way(end);
+            checkers[index] = checkers[index].clone(end);
+        } while (end.getX() - start.getX() != Math.abs(1) && end.getY() - start.getY() != Math.abs(1)
+                || Math.abs(start.getX() - end.getX()) != Math.abs(start.getY() - end.getY()));
     }
+
+    private boolean checkCell(Points start, Points end) throws ImpossibleMoveException {
+            if (end.getX() - start.getX() != Math.abs(1) && end.getY() - start.getY() != Math.abs(1)
+                    || Math.abs(start.getX() - end.getX()) != Math.abs(start.getY() - end.getY())) {
+                throw new ImpossibleMoveException();
+            }
+            return true;
+        }
 
     private int findBy(Points Points) throws CheckerNotFoundException {
         for (int index = 0; index < checkers.length; index++) {
@@ -37,7 +45,7 @@ public class ActionService {
         throw new CheckerNotFoundException();
     }
 
-    public void clean() {
+    private void clean() {
         Arrays.fill(checkers, null);
         index = 0;
     }
@@ -83,4 +91,6 @@ public class ActionService {
         buildBlackTeam();
         buildWhiteTeam();
     }
+
+    public void
 }
