@@ -16,24 +16,27 @@ public class TestView {
     ActionService action = new ActionService();
 
     public void start() {
-        //Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         action.restart();
         System.out.println("WHITE TEAM BUILT AND READY");
         System.out.println("BLACK TEAM BUILT AND READY");
-        //System.out.println("RULES :" +
-         //       " TEMPLATE FOR PLAYING : (*coordinate*) - ENTER - (*second coordinate to put checker*)");
-
-       // String command;
+        System.out.println("RULES :" +
+                " TEMPLATE FOR PLAYING : (*coordinate*) - ENTER - (*second coordinate to put checker*)");
+        String command, command2;
         //String[] scStrings;
 
-            //System.out.println("ENTER COMMAND : ");
-            //command = scanner.nextLine();
+        System.out.println("ENTER FIRST POINT : ");
+        command = scanner.nextLine();
+        Points type = Points.valueOf(command);
+        System.out.println("ENTER SECOND POINT : ");
+        command2 = scanner.nextLine();
+        Points type2 = Points.valueOf(command2);
 
         try {
             //action.move(Points.E6, Points.E5);
             //System.out.println("Checker E6 moved to E5");
-            action.move(Points.E6, Points.F5);
-            System.out.println("Checker E6 moved to F5");
+            action.move(type, type2);
+            System.out.println("Checker " + type + " moved to " + type2);
             action.move(Points.H3, Points.G4);
             System.out.println("Checker H3 moved to G4");
             action.move(Points.F5, Points.H3);
