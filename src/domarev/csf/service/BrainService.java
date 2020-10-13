@@ -20,20 +20,29 @@ public class BrainService {
 
     public void move(Point start, Point end)
             throws CheckerNotFoundException, ImpossibleMoveException, OccupiedCoordinateException {
-        int index = findBy(start);
+        int index = findByStart(start);
         checkCell(start, end);
+        isOccupied(end);
         Point[] steps = checkers[index].way(end);
         checkers[index] = checkers[index].clone(end);
     }
 
-    private void checkCell(Point start, Point end) throws ImpossibleMoveException {
-        if (end.getX() - start.getX() != Math.abs(1) && end.getY() - start.getY() != Math.abs(1)
+    private void checkCell(Point start, Point end) throws ImpossibleMoveException, CheckerNotFoundException, OccupiedCoordinateException {
+        if (Math.abs(end.getX() - start.getX()) != Math.abs(1) && Math.abs(end.getY() - start.getY()) != Math.abs(1)
                 || Math.abs(start.getX() - end.getX()) != Math.abs(start.getY() - end.getY())) {
             throw new ImpossibleMoveException();
         }
     }
 
-    private int findBy(Point point) throws CheckerNotFoundException {
+    private void isOccupied(Point point) throws OccupiedCoordinateException {
+        for (Checker checker : checkers) {
+            if (checker.pos().equals(point)) {
+                throw new OccupiedCoordinateException();
+            }
+        }
+    }
+
+    private int findByStart(Point point) throws CheckerNotFoundException {
         for (int index = 0; index < checkers.length; index++) {
             Checker checker = checkers[index];
             if (checker != null && checker.pos().equals(point)) {
@@ -55,7 +64,7 @@ public class BrainService {
     private final int size = 8;
 
     public Color getColor(Point point) throws CheckerNotFoundException {
-        return checkers[findBy(point)].color;
+        return checkers[findByStart(point)].color;
     }
 
     protected void buildBlackTeam() {

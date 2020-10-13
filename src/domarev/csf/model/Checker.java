@@ -18,7 +18,7 @@ public class Checker implements IChecker {
     }
 
     @Override
-    public Point[] way(Point des) throws ImpossibleMoveException {
+    public Point[] way(Point des) {
         return new Point[]{
                 des
         };
@@ -27,10 +27,5 @@ public class Checker implements IChecker {
     @Override
     public Checker clone(Point des) {
         return new Checker(des, color);
-    }
-
-    @Override
-    public Color color(Point start) {
-        return this.color;
     }
 }

@@ -9,6 +9,4 @@ public interface IChecker {
     Point[] way(Point des) throws ImpossibleMoveException;
 
     Checker clone(Point des);
-
-    Color color(Point start);
 }
